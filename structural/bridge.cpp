@@ -1,5 +1,5 @@
 #include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 class Point3D {
@@ -109,32 +109,31 @@ public:
 //checking polimotfizem
 //int main(){
 //    Point3D arr[]={Point3D(100,0,100),Point3D(2,4,9),Point3D(3,3,11)};
-//    Xcompare x;
-//    bubbleSort b(&x);
-//    b.doSort(arr,3);
+//    sort* s= new bubbleSort(new Xcompare);
+//    s->doSort(arr,3);
 //    for(int i=0;i<3;i++){
 //        arr[i].print();
 //
 //    }
 //    cout<<"finish bubbleSort by x"<<endl;
 //
-//    Ycompare y;
-//    bubbleSort b1(&y);
-//    b1.doSort(arr,3);
+//    s= new bubbleSort(new Ycompare);
+//    s->doSort(arr,3);
 //    for(int i=0;i<3;i++){
 //        arr[i].print();
 //    }
 //    cout<<"finish bubbleSort by y"<<endl;
 //
-//    insertioneSort a(&x);
-//    a.doSort(arr,3);
+//    s= new insertioneSort(new Xcompare);
+//    s->doSort(arr,3);
 //    for(int i=0;i<3;i++){
 //        arr[i].print();
 //    }
 //    cout<<"finish insertionSort by x"<<endl;
 //
-//    insertioneSort a1(&y);
-//    a1.doSort(arr,3);
+//
+//    s= new insertioneSort(new Ycompare);
+//    s->doSort(arr,3);
 //    for(int i=0;i<3;i++){
 //        arr[i].print();
 //    }
