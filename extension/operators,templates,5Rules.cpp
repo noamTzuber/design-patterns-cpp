@@ -26,17 +26,18 @@ public:
     // copy operator
     Int &operator=(Int &original) {
         // checking if their addresses are the same
-        if (this != &original) {
-            this->num = original.num;
-            cout << "copy operator" << endl;
-        }
+        this->num = original.num;
+        cout << "copy operator" << endl;
+
         return *this;
     }
 
     // move operator
     Int &operator=(Int &&original) {
-        this->num = original.num;
-        cout << "move operator" << endl;
+        if (this != &original) {
+            this->num = original.num;
+            cout << "move operator" << endl;
+        }
         return *this;
     }
 
@@ -71,9 +72,7 @@ T function(T &a, const func &f) {
 }
 
 
-
-int main() {
-
+//int main() {
 //    // the ++ before and after
 //    Int x(5);
 //    cout << (x++).num << endl;
@@ -90,6 +89,6 @@ int main() {
 //    float res = function(a, [&y](float param) { return param * 100 + y; });
 //    cout << "the number after template function is " << res << endl;
 ////****************************************
-
-    return 0;
-}
+//
+//    return 0;
+//}
