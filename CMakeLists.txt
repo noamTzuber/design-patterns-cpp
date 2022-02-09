@@ -3,4 +3,4 @@ project(untitled6)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(untitled6 adapter.cpp)
+add_executable(untitled6 rightAndLeft++Implementaion.cpp structural/adapter.cpp)
