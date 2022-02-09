@@ -74,21 +74,21 @@ T function(T &a, const func &f) {
 
 int main() {
 
-    //// the ++ before and after
+//    // the ++ before and after
 //    Int x(5);
 //    cout << (x++).num << endl;
 //    cout << (++x).num << endl;
 ////****************************************
-    //// using move and copy constructor and operators
+//    // using move and copy constructor and operators
 //    Int x(5);
 //    Int t=move(x);
 //    Int y =x;
 ////****************************************
-    float a = 4.44;
-    int y = 9;
-    // lambda function
-    float res = function(a, [&y](float param) { return param * 100 + y; });
-    cout << "the number after template function is " << res << endl;
+//    float a = 4.44;
+//    int y = 9;
+//    // lambda function
+//    float res = function(a, [&y](float param) { return param * 100 + y; });
+//    cout << "the number after template function is " << res << endl;
 ////****************************************
 
     return 0;
