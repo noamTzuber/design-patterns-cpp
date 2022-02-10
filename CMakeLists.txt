@@ -10,4 +10,9 @@ add_executable(untitled6 extension/operators,templates,5Rules.cpp
         structural/adapter.cpp
         structural/composite.cpp
         structural/decorator.cpp
-        structural/proxy.cpp)
+        structural/proxy.cpp
+        creational/factory.cpp
+        creational/abstractFactory.cpp
+        creational/prototype.cpp
+        creational/builder.cpp
+        creational/singleton.cpp)

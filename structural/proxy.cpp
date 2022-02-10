@@ -1,6 +1,6 @@
 # include <iostream>
 # include <map>
-
+# define NOT_FOUND -1
 
 using namespace std;
 
@@ -17,7 +17,7 @@ public:
 
             return ans->second;
         }
-        return -1;
+        return NOT_FOUND;
     }
 
     void addTable(pair<string, int> p) {
@@ -33,9 +33,9 @@ public:
 
     int request(string question) {
         int answer = subject::request(question);
-        if (answer == -1) {
+        if (answer == NOT_FOUND) {
             answer = s->request(question);
-            if (answer == -1) {
+            if (answer == NOT_FOUND) {
                 cout << "not exist, sorry" << endl;
                 return answer;
             }
@@ -54,8 +54,8 @@ public:
     int request(string question) {
         cout << "pass in proxy" << endl;
         int answer = subject::request(question);
-        if (answer == -1) {
-            return -1;
+        if (answer == NOT_FOUND) {
+            return NOT_FOUND;
         }
         return answer;
     }
