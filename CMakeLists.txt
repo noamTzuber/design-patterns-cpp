@@ -15,4 +15,11 @@ add_executable(untitled6 extension/operators,templates,5Rules.cpp
         creational/abstractFactory.cpp
         creational/prototype.cpp
         creational/builder.cpp
-        creational/singleton.cpp)
+        creational/singleton.cpp
+        behaveioral/command.cpp
+        behaveioral/interpreter.cpp
+        behaveioral/iterator.cpp
+        behaveioral/observer.cpp
+        behaveioral/state.cpp
+        behaveioral/strategy.cpp
+        behaveioral/template.cpp)

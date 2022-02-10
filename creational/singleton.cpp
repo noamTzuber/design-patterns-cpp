@@ -1,48 +1,51 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+#include <stdlib.h>
+
 using namespace std;
+class singleton;
 
+class instance {
 
-class Singleton
-{
-private:
-    /* Here will be the instance stored. */
-    static Singleton* instance;
-    string name;
-    int age;
-    string professionalism;
-
-    /* Private constructor to prevent instancing. */
-    Singleton(){
-        this->name="david";
-        this->age =48;
-        this->professionalism="president";
+    friend singleton;
+    int x;
+    instance() {
+        // saving random number
+        srand((unsigned) time(0));
+        x=(rand() % 100) + 1;
     };
-
 public:
-    /* Static access method. */
-    static Singleton* getInstance(){
-        if (instance == 0)
-        {
-            cout<<"create the object"<<endl;
-            instance = new Singleton();
-        }
-
-        return instance;
-    };
-    void printDetails(){
-        cout<<"the name is: "<< this->name<<endl<<"his age is: "<<this->age<<endl<<
-        "his professionalism is: "<< this->professionalism<<endl;
+    void print(){
+        // print the random number - it always the same
+        cout<<x<<endl;
     }
 };
 
-/* Null, because instance will be initialized on demand. */
-Singleton* Singleton::instance = 0;
+class singleton {
+    static instance *ins;
+public:
+    static instance *getInstance() {
+        if (ins == nullptr) {
+            // checking how many time we pass in the creator (just one!!)
+            cout << "create the object" << endl;
+            ins = new instance();
+        }
+        return ins;
+    };
 
-int main()
-{
-    //new Singleton(); // Won't work
-    Singleton* s = Singleton::getInstance(); // Ok
-    Singleton* r = Singleton::getInstance();
-    r->printDetails();
+};
 
-}
+//because instance will be initialized on demand.
+instance * singleton::ins = 0 ;
+
+//int main()
+//{
+//    instance* s = singleton::getInstance();
+//    // will not print the "creat object"
+//    instance* r = singleton::getInstance();
+//    r->print();
+//    s->print();
+//return 0;
+//}
