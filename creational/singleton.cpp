@@ -1,51 +1,46 @@
 #include <iostream>
-#include <cstdlib>
 #include <ctime>
-#include <iostream>
 #include <stdlib.h>
 
+
 using namespace std;
+
 class singleton;
 
-class instance {
-
-    friend singleton;
-    int x;
-    instance() {
-        // saving random number
-        srand((unsigned) time(0));
-        x=(rand() % 100) + 1;
-    };
-public:
-    void print(){
-        // print the random number - it always the same
-        cout<<x<<endl;
-    }
-};
-
 class singleton {
-    static instance *ins;
+    static singleton *ins;
+    int random_variable;
+
+    singleton() {
+        srand(time(0));
+        random_variable = rand();
+    }
+
 public:
-    static instance *getInstance() {
+    static singleton *getInstance() {
         if (ins == nullptr) {
             // checking how many time we pass in the creator (just one!!)
             cout << "create the object" << endl;
-            ins = new instance();
+            ins = new singleton();
         }
         return ins;
     };
 
+    void print() {
+        cout << this->random_variable << endl;
+
+    }
+
 };
 
 //because instance will be initialized on demand.
-instance * singleton::ins = 0 ;
+singleton *singleton::ins = 0;
 
-//int main()
-//{
-//    instance* s = singleton::getInstance();
-//    // will not print the "creat object"
-//    instance* r = singleton::getInstance();
-//    r->print();
-//    s->print();
-//return 0;
-//}
+int main() {
+    singleton *s = singleton::getInstance();
+    // will not print the "creat object"
+    singleton *r = singleton::getInstance();
+    r->print();
+    s->print();
+    return 0;
+}
