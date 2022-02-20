@@ -48,7 +48,7 @@ class factoryFlyWeight {
 public:
     factoryFlyWeight() {};
 
-    flyWeight *getFly(map<string, flyWeight *> &currentObjects, string name) {
+    flyWeight *getFly(map<string, flyWeight *> &currentObjects, const string name) {
         // checking if is exist in map
         auto exist = currentObjects.find(name);
 
