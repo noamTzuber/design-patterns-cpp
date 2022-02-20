@@ -3,51 +3,50 @@
 
 
 using namespace std;
-
-class composite{
+// change the vector in the father//
+class component{
 protected:
-    vector<composite*> children;
     string name;
 public:
-    composite(string name){
+    component(string name){
         this->name=name;
     }
     virtual void telYourName(){}
-    void addChild(composite *a){
-        this->children.push_back(a);
-    }
-    void removeChild(composite *a){
-        //do something
-    }
+    virtual void addChild(component *a){}
+    void removeChild(component *a){}
 
 };
-class father: public composite{
+class father: public component{
+    vector<component*> children;
 public :
-    father(string name): composite(name){}
+    father(string name): component(name){}
 
     virtual void telYourName(){
         cout<<name<<endl;
-        for(composite* c : children){
+        for(component* c : children){
             c->telYourName();
         }
+    }
+    void addChild(component *a){
+        this->children.push_back(a);
     }
 
 };
 
-class child: public composite{
+class child: public component{
 public:
-    child(string name): composite(name){}
+    child(string name): component(name){}
 
     void telYourName() override{
         cout<<name<<endl;
     }
 };
 
-//int main(){
-//    composite *a=new father("ari");
-//    composite *b= new child("ben");
-//    a->addChild(b);
-//    a->telYourName();
-//    return 0;
-//}
+int main(){
+    component *a=new father("ari");
+    component *b= new child("ben");
+    a->addChild(b);
+    a->telYourName();
+    return 0;
+}
 
